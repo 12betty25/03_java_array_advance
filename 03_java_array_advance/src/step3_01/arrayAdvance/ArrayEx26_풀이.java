@@ -26,23 +26,69 @@ public class ArrayEx26_풀이 {
 		int[] front = new int[SIZE];
 		int[] back  = new int[SIZE];
 		
+		//숫자 저장하기
 		for (int i = 0; i < SIZE; i++) {
 			front[i] = i + 1;
-			back[i] = SIZE + (i+1);
+			back [i] = SIZE + (i + 1);
 		}
-
-		for (int i = 0; i < 1000; i++) {
+		
+		//요소 순서 섞기
+		for (int i = 0; i < SIZE; i++) {
+			
 			int rIdx = ran.nextInt(SIZE);
-			int temp = front[0];
-			front[0] = front[rIdx];
+			int temp = front[i];
+			front[i] = front[rIdx];
 			front[rIdx] = temp;
 			
-			temp = back[0];
-			back[0] = back[rIdx];
+			
+			rIdx = ran.nextInt(SIZE);
+			temp = back[i];
+			back[i] = back[rIdx];
 			back[rIdx] = temp;
-			
-			
 		}
+		
+		//답 스포
+		int num = 1;
+		
+		while (true) {
+			int answer = 0;
+			for (int i = 0; i < SIZE; i++) {
+				if (front[i] == num) {
+					answer = i;
+				}
+			}
+			System.out.println(num + " [" + answer +"]");
+			
+			//문제지 만들기
+			for (int i = 0; i < SIZE; i++) {
+				System.out.print(front[i] + " ");
+				
+				if (i % 3 ==2) System.out.println();
+			}
+			
+			//답 입력 받기
+				System.out.println("입력: ");
+				int user = scan.nextInt();
+				if (front[user] == num) { //answer은 인덱스 숫자 (요소가 아님) -> user == answer은 성립 
+										  //1 [5]
+										  //front[5] = 1        num = 1
+										  //성립 
+					if (num >= 1 && num <= SIZE) {
+						front[user] = back[user];
+					}
+					else {
+						front[user] = 0;
+					}
+				}
+				
+				num ++;
+			
+			
+			if (num == 19) {
+				break;
+			}
+		}
+			scan.close();
 	}
 	
 }

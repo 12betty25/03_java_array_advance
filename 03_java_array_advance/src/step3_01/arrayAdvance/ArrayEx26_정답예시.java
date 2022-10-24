@@ -38,7 +38,7 @@ public class ArrayEx26_정답예시 {
 			front[0] = front[rIdx]; //front[0] (1)에 front[rIdx] 값 저장 ex)rIdx = 4면 요소는 5
 			front[rIdx] = temp; 	// 1을 front[rIdx]에 저장
 			
-//			rIdx = ran.nextInt(SIZE); -> 없어도 되나...?
+			rIdx = ran.nextInt(SIZE); // -> 없어도 되나...? 혹시 모르니까 일단 해두자 
 			temp = back[0];			
 			back[0] = back[rIdx];
 			back[rIdx] = temp;
@@ -55,30 +55,34 @@ public class ArrayEx26_정답예시 {
 											//ex front[0] = 1
 											//1 == 1 성립
 											//answer = 1;
+											//num은 올라가지 않고 성립되지 않을 시에 i가 올라가
+											//num과 일치하는 요소를 계속해서 찾음 
 				}
 			}
-			System.out.println(num + "[" + answer + "]"); //답 스포
+			System.out.println(num + "[" + answer + "]"); //num과 일치하는 요소를 찾으면 출력 
+			
 			//게임판 보여주기
 			for (int i=0; i<SIZE; i++) {
 				
-				if (front[i] == 0) 	System.out.print("\t"); //\t = tab 
-				else 				System.out.print(front[i] + "\t");
+				if (front[i] == 0) 	System.out.print("\t"); //\t = tab 어차피 0 없어서 사용될리 없
+				else 				System.out.print(front[i] + " ");
 				
-				if (i % 3 == 2) 	System.out.println("\n");
+				if (i % 3 == 2) 	System.out.println("\n");	//3번 숫자 출력 후 줄바꿈
 			}
 			
+			//답 맞추기 
 			System.out.print("[" + num + "]의 인덱스 입력 : ");
 			int numIdx = scan.nextInt();
 			
-			if (front[numIdx] == num) {
+			if (front[numIdx] == num) {			
 				
-				if (1 <= num && num <= SIZE) front[numIdx] = back[numIdx];
-				else 						front[numIdx] = 0;
+				if (1 <= num && num <= SIZE) front[numIdx] = back[numIdx]; //front 요소를 맞히면 back 요소로 교체 
+				else 						front[numIdx] = 0; //맞힌 숫자가 사라지지 않음 
 				
-				num++;
+				num++;										   //문제 번호 하나 올리기 
 			}
 			
-			if (num == 19) {
+			if (num == 19) { 	//정답을 모두 맞히면 종료 
 				break;
 			}
 			

@@ -18,34 +18,39 @@ public class ArrayEx27_풀이 {
 	public static void main(String[] args) {
 		
 		Scanner scan = new Scanner(System.in);
+		
 		int[] game = {0,0,1,0,2,0,0,1,0};
-		int playerIdx = 0;
+		int location = 0;
 		
 		for (int i = 0; i < game.length; i++) {
-			if (game[i] == 2) {  //만약 i번째가 2(캐릭터)면
-				playerIdx = i;	 //
-			}
-		}
-		
-		while(true) {
-			for (int i = 0; i < game.length; i++) {
-				if (game[i] == 2) System.out.println("옷 ");
-				else			  System.out.println(" ");
-			}
-			System.out.println();
-			
-			System.out.println("왼쪽(1) 오른쪽(2) 종료(0)");
-			int move = scan.nextInt();
-			
-			if (move == 1) {
-				
-			}
-			
+			if (game[i] == 2) location = i;
 		}
 		
 		
+		while (true) {
+		for (int i = 0; i < game.length; i++) {
+			if (game[i] == 2) {
+				System.out.print("옷 ");
+			}
+			else {
+				System.out.print(game[i] + " ");
+			}
+		}
 		
-		
+		System.out.println();
+		for (int i = 0; i < game.length; i++) {
+			
+			System.out.print("왼쪽(1) 오른쪽(2) 종료(0): ");
+			int user = scan.nextInt();
+			
+			if(user == 1) {
+				if (location - 1 >= 0) {
+					if(game[i] == 1) {
+						System.out.println("격파(3): ");
+					}
+				}
+			}
+		}
 	}
-	
+	}
 }
