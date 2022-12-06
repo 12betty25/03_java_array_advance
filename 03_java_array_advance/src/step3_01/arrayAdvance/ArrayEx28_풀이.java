@@ -16,19 +16,32 @@ public class ArrayEx28_풀이 {
 		Random ran = new Random();
 		
 		int[] arr = new int[5];
-		int rNum = ran.nextInt(10) + 1;
 		
-		for (int i = 0; i < arr.length; i++) {
-			if(arr[i] != 0) {
-				rNum = arr[i];
+		int i = 0;
+		
+		while (i < 5) {
+			
+			int rNum = ran.nextInt(10)+1;
+			int check = 1;
+			int j = 0;
+			
+			
+			while (j < i) {
+				if (arr[j] == rNum) {
+					check = -1;
+				}
+				j++;
 			}
-			else {
-				i--;
+			
+			if (check == 1) {
+				arr[i] = rNum;
+				i++;
 			}
+			
 		}
 		
-		for (int i = 0; i < arr.length; i++) {
-			System.out.print(arr[i] + " ");
+		for (int j = 0; j < arr.length; j++) {
+			System.out.print(arr[j] + " ");
 		}
 	}
 	
