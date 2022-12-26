@@ -38,7 +38,7 @@ public class ArrayEx26_정답예시 {
 			front[0] = front[rIdx]; //front[0] (1)에 front[rIdx] 값 저장 ex)rIdx = 4면 요소는 5
 			front[rIdx] = temp; 	// 1을 front[rIdx]에 저장
 			
-			rIdx = ran.nextInt(SIZE); // -> 없어도 되나...? 혹시 모르니까 일단 해두자 
+			rIdx = ran.nextInt(SIZE); 
 			temp = back[0];			
 			back[0] = back[rIdx];
 			back[rIdx] = temp;
