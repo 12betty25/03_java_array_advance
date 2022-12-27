@@ -32,7 +32,7 @@ public class ArrayEx26_정답예시 {
 		}
 		
 		//순서 섞기 
-		for (int i = 0; i < 1000; i++) {
+		for (int i = 0; i < 1000; i++) {		//어차피 숫자는 중복될 일 없음 계속해서 요소들의 순서가 바뀌는 거니까
 			int rIdx = ran. nextInt(SIZE); //0~8
 			int temp = front[0]; 	//temp에 front[0] (1)를 백업 temp = 1
 			front[0] = front[rIdx]; //front[0] (1)에 front[rIdx] 값 저장 ex)rIdx = 4면 요소는 5
@@ -44,7 +44,7 @@ public class ArrayEx26_정답예시 {
 			back[rIdx] = temp;
 		}
 		
-		int num = 1;
+		int num = 1;	//문제 카운트
 		while (true) {
 			
 			//답 스포하기
@@ -68,15 +68,16 @@ public class ArrayEx26_정답예시 {
 				else 				System.out.print(front[i] + " ");
 				
 				if (i % 3 == 2) 	System.out.println("\n");	//3번 숫자 출력 후 줄바꿈
+																//2, 5, 8 (인덱스는 숫자 - 1) 
 			}
 			
-			//답 맞추기 
+			//답 맞추기
 			System.out.print("[" + num + "]의 인덱스 입력 : ");
-			int numIdx = scan.nextInt();
+			int numIdx = scan.nextInt();	//답 입력 
 			
-			if (front[numIdx] == num) {			
+			if (front[numIdx] == num) {		//입력한 답이 맞으면	
 				
-				if (1 <= num && num <= SIZE) front[numIdx] = back[numIdx]; //front 요소를 맞히면 back 요소로 교체 
+				if (1 <= num && num <= SIZE) front[numIdx] = back[numIdx]; //front 요소(1~9)를 맞히면 맞힌 요소의 인덱스에 back 요소로 교체 
 				else 						front[numIdx] = 0; //맞힌 숫자가 사라지지 않음 
 				
 				num++;										   //문제 번호 하나 올리기 
